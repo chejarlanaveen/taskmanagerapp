@@ -4,6 +4,11 @@ const path = require('path');
 
 const app = express();
 
+
+app.get('/conn',(req,res)=>{
+    res.send("server established !!");
+})
+
 const server1 = require(path.resolve(__dirname,'server1'));
 const server2 = require(path.resolve(__dirname,'server2'));
 
