@@ -6,7 +6,7 @@
     "routes": [
       { "src": "/(.*)", "dest": "server1.js" },
       { "src": "/(.*)", "dest": "server2.js" },
-      { "src": "/(.*)", "dest":"dummyserver.js"}
+      { "src": "/(.*)", "dest":"/api/dummyserver.js"}
     ]
   }
   
