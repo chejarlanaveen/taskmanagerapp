@@ -9,6 +9,11 @@ app.get('/conn',(req,res)=>{
     res.send("server established !!");
 })
 
+app.get('/',(req,res)=>{
+    res.send("dummy server");
+});
+
+
 const server1 = require(path.resolve(__dirname,'server1'));
 const server2 = require(path.resolve(__dirname,'server2'));
 
