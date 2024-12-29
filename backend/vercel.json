@@ -4,8 +4,8 @@
       { "src": "backend/*.js", "use": "@vercel/node" }
     ],
     "routes": [
-      { "src": "/server1", "dest": "/backend/server1.js" },
-      { "src": "/server2", "dest": "/backend/server2.js" }
+      { "src": "/(.*)", "dest": "/backend/server1.js" },
+      { "src": "/(.*)", "dest": "/backend/server2.js" }
     ]
   }
   
