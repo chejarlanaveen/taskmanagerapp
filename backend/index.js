@@ -6,8 +6,16 @@ const app = express();
 
 
 app.get('/conn',(req,res)=>{
-    res.send("server established !!");
-})
+    try{
+        if(res.status==200)
+        res.status(200).send("server established !!");
+    }
+    catch(error){
+        res.status(500).send(error.message);
+    }
+    })
+   
+    
 
 app.get('/',(req,res)=>{
     res.send("dummy server");
