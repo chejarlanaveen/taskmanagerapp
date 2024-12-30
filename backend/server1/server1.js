@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const serverless = require('serverless-http');
+//const serverless = require('serverless-http');
 
 const app1 = express();
 
@@ -56,6 +56,10 @@ const validateUserInput = (username, password) => {
   }
   return null;
 };
+
+app1.get('/response',(req,res)=>{
+  res.send("checking !!");
+})
 
 // Endpoint to handle user signup
 app1.post('/signup', async (req, res) => {
@@ -127,6 +131,6 @@ app1.post('/login', async (req, res) => {
   });
 } else {
   // Export the app1 for serverless deployment (e.g., Vercel)
-  module.exports = serverless(app1);
-  //module.exports = app1;
+  //module.exports = serverless(app1);
+  module.exports = app1;
 }
