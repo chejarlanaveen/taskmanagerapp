@@ -24,7 +24,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(`https://taskmanagementapp-frontend.vercel.app/signup`, { username, password });
+      const response = await axios.post(`http://localhost:5006/signup`, { username, password });
 
       alert(response.data.message);
 

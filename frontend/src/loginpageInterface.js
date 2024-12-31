@@ -48,7 +48,7 @@ export default function LoginPage() {
     setLoginError('');
 
     try {
-      const response = await axios.post(`${process.env.SERVER_URL1}/login`, {
+      const response = await axios.post(`http://localhost:5006/login`, {
         username,
         password,
       });

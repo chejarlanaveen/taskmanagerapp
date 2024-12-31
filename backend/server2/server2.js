@@ -9,7 +9,7 @@ const app2 = express();
 
 
 const corsOptions = {
-  origin: ['http://localhost:3000'], // Allowed origins
+  origin: [`http://taskmanagerapp-frontrnd.vercel.app`,'http://localhost:3000'], // Allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed request headers
   credentials: true, // Enable cookies and credentials
@@ -22,9 +22,9 @@ app2.use(cors(corsOptions));
 // MongoDB connection
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    await mongoose.connect('mongodb+srv://chejarlanaveen14:OPLONKWWJ6oS0Y8C@taskmanager.pl6bw.mongodb.net/?retryWrites=true&w=majority&appName=taskmanagers', {
+      //useNewUrlParser: true,
+      //useUnifiedTopology: true,
     });
     console.log('MongoDB connected');
   } catch (err) {
