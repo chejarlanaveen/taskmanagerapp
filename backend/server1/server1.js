@@ -12,7 +12,7 @@ const app1 = express();
 
 
 const corsOptions = {
-  origin: ['https://taskmanagementapp-frontend.vercel.app/signup','http://localhost:3000'], // Allowed origins
+  origin: [`${process.env.FRONTEND_URL}/signup`,'http://localhost:3000'], // Allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed request headers
   credentials: true, // Enable cookies and credentials
