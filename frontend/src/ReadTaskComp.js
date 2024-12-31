@@ -19,7 +19,7 @@ const ContentBox = () => {
   const fetchTasks = async (username, date) => {
     if (!username) return;
 
-    let query = `https://taskmanagement-nu.vercel.app/tasks?username=${username}`;
+    let query = `${process.env.SERVER_URL2}/tasks?username=${username}`;
     if (date) {
       query += `&created_at=${date}`;
     }
@@ -36,7 +36,7 @@ const ContentBox = () => {
 
   const toggleTaskStatus = async (taskId, currentStatus) => {
     try {
-      const response = await axios.put(`http://localhost:5007/toggle-task-status/${taskId}`, {
+      const response = await axios.put(`${process.env.SERVER_URL2}/toggle-task-status/${taskId}`, {
         isDone: !currentStatus,
       });
       if (response.data && response.data.task) {
