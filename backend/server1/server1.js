@@ -6,13 +6,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-//const serverless = require('serverless-http');
+// const serverless = require('serverless-http');
 
 const app1 = express();
 
-
 const corsOptions = {
-  origin: [`https://taskmanagerapp-frontend-app.vercel.app`,'http://localhost:3000'], // Allowed origins
+  origin: [`https://taskmanagerapp-frontend-app.vercel.app`, 'http://localhost:3000'], // Allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed request headers
   credentials: true, // Enable cookies and credentials
@@ -22,17 +21,18 @@ const corsOptions = {
 app1.use(bodyParser.json());
 app1.use(cors(corsOptions));
 
-// MongoDB connection setup
+// MongoDB connection setup with retries and timeout
 const connectDB = async () => {
   try {
     await mongoose.connect('mongodb+srv://chejarlanaveen14:OPLONKWWJ6oS0Y8C@taskmanager.pl6bw.mongodb.net/?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000, // Timeout for MongoDB connection
     });
     console.log('MongoDB connected');
   } catch (err) {
     console.error('Error connecting to MongoDB:', err);
-    process.exit(1);
+    setTimeout(connectDB, 5000); // Retry the connection after 5 seconds
   }
 };
 
@@ -57,9 +57,9 @@ const validateUserInput = (username, password) => {
   return null;
 };
 
-app1.get('/response',(req,res)=>{
-  res.json({message:"checking !!"});
-})
+app1.get('/response', (req, res) => {
+  res.json({ message: "checking !!" });
+});
 
 // Endpoint to handle user signup
 app1.post('/signup', async (req, res) => {
@@ -124,13 +124,13 @@ app1.post('/login', async (req, res) => {
 });
 
 // Conditional: Development vs Production
- if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   const PORT = process.env.PORT1 || 5006;
   app1.listen(PORT, () => {
-    console.log(`Server running locally at http://localhost:${PORT} | `);
+    console.log(`Server running locally at http://localhost:${PORT}`);
   });
 } else {
   // Export the app1 for serverless deployment (e.g., Vercel)
-  //module.exports = serverless(app1);
+  // module.exports = serverless(app1);
   module.exports = app1;
 }
