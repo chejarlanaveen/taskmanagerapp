@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function App() {
+function Response() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     // Fetch the message from the Express server
-    axios.get("https://taskmanagerapp-frontend-app.vercel.app/response")
+    axios.get("http://localhost:5006/response")
       .then((response) => {
         setMessage(response.data.message);
       })
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default Response;

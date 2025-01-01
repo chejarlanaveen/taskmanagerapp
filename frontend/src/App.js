@@ -23,6 +23,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signup from './signuppage';
 import LoginPage from './loginpageInterface'; // The page to navigate to after signup
 import Mainapp from './HomePage';
+import Response from './response';
 import './App.css';
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<LoginPage />} /> {/* Redirect here after signup */}
         <Route path='/mainpage' element={<Mainapp/>}/>
+        <Route path='/response' element={<Response/>}/>
       </Routes>
     </Router>
   );
