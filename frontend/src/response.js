@@ -6,7 +6,7 @@ function Response() {
 
   useEffect(() => {
     // Fetch the message from the Express server
-    axios.get("https://taskmanagerapp-frontend-app.vercel.app/response")
+    axios.get("https://taskmanagerapp-backend-server1.vercel.app/response")
       .then((response) => {
         setMessage(response.data.message);
       })
