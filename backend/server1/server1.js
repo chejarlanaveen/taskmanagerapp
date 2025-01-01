@@ -58,7 +58,7 @@ const validateUserInput = (username, password) => {
 };
 
 app1.get('/response',(req,res)=>{
-  res.send("checking !!");
+  res.json({message:"checking !!"});
 })
 
 // Endpoint to handle user signup
