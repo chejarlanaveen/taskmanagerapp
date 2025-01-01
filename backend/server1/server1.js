@@ -25,7 +25,7 @@ app1.use(cors(corsOptions));
 // MongoDB connection setup
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/taskmanager', {
+    await mongoose.connect('mongodb+srv://chejarlanaveen14:OPLONKWWJ6oS0Y8C@taskmanager.pl6bw.mongodb.net/?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
