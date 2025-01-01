@@ -4,7 +4,7 @@
   "description": "",
   "main": "server2.js",
   "scripts": {
-    "start": "nodemon server2.js",
+    "start": "node server2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
