@@ -12,7 +12,7 @@ const app1 = express();
 
 
 const corsOptions = {
-  origin: [`http://taskmanagerapp-frontrnd.vercel.app`,'http://localhost:3000'], // Allowed origins
+  origin: [`https://taskmanagerapp-frontrnd.vercel.app`,'http://localhost:3000'], // Allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed request headers
   credentials: true, // Enable cookies and credentials
