@@ -19,7 +19,7 @@ const ContentBox = () => {
   const fetchTasks = async (username, date) => {
     if (!username) return;
 
-    let query = `${process.env.SERVER_URL2}/tasks?username=${username}`;
+    let query = `http://localhost:5007/tasks?username=${username}`;
     if (date) {
       query += `&created_at=${date}`;
     }

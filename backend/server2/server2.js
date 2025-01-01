@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const serverless = require('serverless-http');
+//const serverless = require('serverless-http');
 
 const app2 = express();
 
@@ -207,18 +207,17 @@ app2.post('/delete-tasks', async (req, res) => {
   }
 });
 
-module.exports = app2;
 
-//Development vs Production Environment
+// Conditional: Development vs Production
 if (process.env.NODE_ENV === 'development') {
   const PORT = process.env.PORT2 || 5007;
   app2.listen(PORT, () => {
     console.log(`Server running locally at http://localhost:${PORT} | `);
   });
 } else {
-  // For production (e.g., Vercel), export the app2
-  module.exports = serverless(app2);
-  //module.exports = app2;
+  // Export the app1 for serverless deployment (e.g., Vercel)
+  //module.exports = serverless(app1);
+  module.exports = app2;
 }
 
 
