@@ -23,7 +23,7 @@ export default function TextAreaWithDate() {
     setError('');
 
     try {
-      const response = await axios.post(`http://localhost:5007/create-task`, {
+      const response = await axios.post(`http://taskmanagerapp-backend-server2.vercel.app/create-task`, {
         username,        // Add username to the request
         task_name: text, // Task content
         created_at: formattedDate, // Send the formatted date as a string (dd-mm-yy)

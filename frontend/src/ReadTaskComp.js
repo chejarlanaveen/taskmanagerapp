@@ -19,7 +19,7 @@ const ContentBox = () => {
   const fetchTasks = async (username, date) => {
     if (!username) return;
 
-    let query = `http://localhost:5007/tasks?username=${username}`;
+    let query = `http://taskmanagerapp-backend-server2.vercel.app/tasks?username=${username}`;
     if (date) {
       query += `&created_at=${date}`;
     }

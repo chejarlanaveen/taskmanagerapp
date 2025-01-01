@@ -19,7 +19,7 @@ const EditableTaskList = () => {
           ? formatDateToDDMMYY(new Date(searchDate))
           : '';
 
-        const response = await axios.get(`${process.env.SERVER_URL2}/tasks`, {
+        const response = await axios.get(`http://taskmanagerapp-backend-server2.vercel.app/tasks`, {
           params: { username, created_at: formattedDate },
         });
         setTasks(response.data.tasks);
@@ -46,7 +46,7 @@ const EditableTaskList = () => {
       // Format the date before sending to the backend
       const formattedDate = formatDateToDDMMYY(newDate);
 
-      const response = await axios.put(`${process.env.SERVER_URL2}/update-task/${id}`, {
+      const response = await axios.put(`http://taskmanagerapp-backend-server2.vercel.app/update-task/${id}`, {
         task_name: newContent,
         created_at: formattedDate,
       });

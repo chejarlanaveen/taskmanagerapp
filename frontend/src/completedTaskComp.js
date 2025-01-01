@@ -18,7 +18,7 @@ function CompletedTasks() {
         }
 
         // Fetch completed tasks with username in query parameters
-        const response = await axios.get(`${process.env.SERVER_URL2}/completed-tasks`, {
+        const response = await axios.get(`http://taskmanagerapp-backend-server2.vercel.app/completed-tasks`, {
           params: { username,isDone:true }, // Include username from session storage
         });
         setCompletedTasks(response.data.tasks);

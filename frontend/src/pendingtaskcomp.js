@@ -16,7 +16,7 @@ function PendingTasks() {
           console.error('Username is not found in session storage.');
           return;
         }
-          const response = await axios.get(`${process.env.SERVER_URL2}/pending-tasks`, {
+          const response = await axios.get(`http://taskmanagerapp-backend-server2.vercel.app/pending-tasks`, {
             params: { username,isDone:false },// Fetch only pending tasks
           });
           setPendingTasks(response.data.tasks);
