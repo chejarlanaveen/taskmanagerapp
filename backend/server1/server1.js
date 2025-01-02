@@ -31,8 +31,8 @@ const connectDB = async () => {
   try {
     if (isConnected) return; // Check if already connected to MongoDB
     await mongoose.connect('mongodb+srv://chejarlanaveen14:OPLONKWWJ6oS0Y8C@taskmanager.pl6bw.mongodb.net/?retryWrites=true&w=majority', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      //useNewUrlParser: true,
+      //useUnifiedTopology: true,
     });
     isConnected = true;
     console.log('MongoDB connected');
@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // Add an index on the username field for faster search queries
-userSchema.index({ username: 1 });
+//userSchema.index({ username: 1 });
 
 const User = mongoose.model('User', userSchema);
 
